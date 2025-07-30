@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # nest-app:
+  #   container_name: food-delivery-server
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   ports:
+  #     - '3000:3000'
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - NODE_ENV=development
+  #   depends_on:
+  #     - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: food_delivery_db
+    volumes:
+      - ../postgres_data:/var/lib/postgresql/data
